@@ -7,7 +7,7 @@
         <div class="bg-gray-100 shadow-lg rounded-lg">
             <div
                 class="flex justify-center items-center {{ $property->exists ? 'bg-emerald-500' : 'bg-indigo-500' }} p-3 rounded-t-lg">
-                <h1 class="text-gray-200 text-xl uppercase font-semibold">@yield('title')</h1>
+                <h1 class="text-gray-200 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             </div>
             <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
                 method="post" class="p-8">
@@ -77,7 +77,6 @@
                     @include('shared.checkbox', [
                         'label' => 'Vendu',
                         'name' => 'sold',
-                        'type' => 'checkbox',
                         'value' => $property->sold,
                     ])
                 </div>
