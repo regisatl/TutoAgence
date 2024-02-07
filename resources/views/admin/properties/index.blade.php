@@ -1,8 +1,11 @@
 @extends('admin.admin')
 
-@section('content')
-    <h1>Les Biens</h1>
-    <table class="table table-striped-columns">
+@section('title', 'Tous les biens')
+    <div class="d-flex justify-content-between align-items center p-4">
+        <h1>@yield('title')</h1>
+        <a href="{{ route('admin.properties.create') }}" class="btn btn-success">Ajouter un bien</a>
+    </div>
+    <table class="table table-striped border rounded-lg text-body">
         <thead>
             <tr>
                 <th scope="col">N°</th>
@@ -10,7 +13,7 @@
                 <th scope="col">Surface</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Ville</th>
-                <th scope="col" class="text-end">Actions</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
