@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    Route::resource('properties', PropertyController::class);
+    Route::resource('property', PropertyController::class);
 });
