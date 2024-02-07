@@ -74,12 +74,11 @@
                         'value' => $property->postal_code,
                         'placeholder' => 'Entrez le code postal...',
                     ])
-                    @include('shared.input', [
+                    @include('shared.checkbox', [
                         'label' => 'Vendu',
                         'name' => 'sold',
                         'type' => 'checkbox',
                         'value' => $property->sold,
-                        'placeholder' => '...',
                     ])
                 </div>
                 <div class="w-full mb-5">
