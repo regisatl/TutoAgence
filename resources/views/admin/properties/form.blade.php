@@ -11,7 +11,7 @@
             @csrf
             @method($property->exists ? 'put' : 'post')
 
-            @include('shared.input', )
+            @include('shared.input', ['label' => 'Titre', 'name' => 'title', 'value' => $property->title])
 
             <div>
                 <button :class="'btn btn-primary' ? 'btn btn-success' : 'btn btn-primary'">

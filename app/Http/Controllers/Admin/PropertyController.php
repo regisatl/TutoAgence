@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PropertyFormRequest;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.properties.create', [
+        return view('admin.properties.form', [
             'property' => new Property()
         ]);
     }
@@ -32,9 +33,9 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PropertyFormRequest $request)
     {
-        //
+
     }
 
     /**
