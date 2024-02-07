@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -9,23 +10,25 @@ export default {
     theme: {
         extend: {},
         colors: {
-            primary: {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                200: "#bfdbfe",
-                300: "#93c5fd",
-                400: "#60a5fa",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                800: "#1e40af",
-                900: "#1e3a8a",
-                950: "#172554",
-            },
-        },
+            transparent: "transparent",
+            current: "currentColor",
+            slate: colors.slate,
+            white: colors.white,
+            gray: colors.gray,
+            emerald: colors.emerald,
+            indigo: colors.indigo,
+            yellow: colors.yellow,
+            amber: colors.amber,
+            orange: colors.orange,
+            red: colors.red,
+            green: colors.green,
+            teal: colors.teal,
+            blue: colors.blue,
+        }
     },
     fontFamily: {
         body: ["Poppins"],
+        sans: ["Inter", "Roboto", "Helvetica Neue"],
     },
     plugins: [],
 };
