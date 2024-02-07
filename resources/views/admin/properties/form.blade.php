@@ -5,7 +5,7 @@
 @section('content')
     <div class="">
         <h1>@yield('title')</h1>
-        <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
+        <form class="max-w-md mx-auto" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
             method="POST">
 
             @csrf
@@ -15,7 +15,7 @@
 
             <div>
                 <button :class="'btn btn-primary' ? 'btn btn-success' : 'btn btn-primary'">
-                    @if ($porperty->exists)
+                    @if ($property->exists)
                         Modifier
                     @else
                         Ajouter
