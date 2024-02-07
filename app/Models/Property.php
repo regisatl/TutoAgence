@@ -12,6 +12,7 @@ class Property extends Model
     protected $fillable = [
         'title',
         'surface',
+        'description',
         'price',
         'rooms',
         'bedrooms',

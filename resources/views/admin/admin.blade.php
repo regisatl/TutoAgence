@@ -21,6 +21,11 @@
 <body>
 
     <div class="mt-5">
+        @if (session('succes'))
+            <div class="alert alert-success">
+                {{ session('succes') }}
+            </div>
+        @endif
         @yield('content')
     </div>
 
