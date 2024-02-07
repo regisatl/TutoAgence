@@ -15,21 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <title>@yield('title') | Administration</title>
+    @vite('resources/css/app.css')
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem;
-            color: #1f2937;
-        }
-        h1{
-            font-size: 1.5rem;
-        }
-        a {
-            font-weight: 200;
-        }
-        table, th, td {
-            font-size: 0.8rem;
-            color: #1f2937;
         }
     </style>
 </head>
