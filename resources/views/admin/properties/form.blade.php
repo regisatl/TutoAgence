@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="flex items-center justify-center min-h-screen py-8 px-4">
-        <div class=" shadow-lg rounded-lg">
+        <div class="bg-gray-100 shadow-lg rounded-lg">
             <div
                 class="flex justify-center items-center {{ $property->exists ? 'bg-emerald-500' : 'bg-indigo-500' }} p-3 rounded-t-lg">
                 <h1 class="text-gray-200 text-xl uppercase font-semibold">@yield('title')</h1>

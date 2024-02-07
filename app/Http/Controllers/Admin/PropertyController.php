@@ -25,7 +25,19 @@ class PropertyController extends Controller
      */
     public function create()
     {
-       
+        $property = new Property();
+        $property->fill([
+            'title' => 'Maison ATTOLOU',
+            'surface' => 40,
+            'price' => 50000,
+            'rooms' => 5,
+            'bedrooms' => 3,
+            'floor' => 0,
+            'address' => 'Tokan/M/ATTOLOU',
+            'city' => 'Abomey-Calavi',
+            'postal_code' => 'MA 3400',
+            'sold' => false,
+        ]);
         return view('admin.properties.form', [
             'property' => new Property()
         ]);
