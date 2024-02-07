@@ -5,14 +5,15 @@
 @section('content')
     <div class="flex items-center justify-center min-h-screen py-8 px-4">
         <div class=" shadow-lg rounded-lg">
-            <div class="flex justify-center items-center bg-indigo-500 p-3 rounded-t-lg">
+            <div
+                class="flex justify-center items-center {{ $property->exists ? 'bg-emerald-500' : 'bg-indigo-500' }} p-3 rounded-t-lg">
                 <h1 class="text-gray-200 text-xl uppercase font-semibold">@yield('title')</h1>
             </div>
             <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
                 method="post" class="p-8">
                 @csrf
                 @method($property->exists ? 'put' : 'post')
-                <div class="grid gap-4 sm:grid-cols-3 md:grid-cols-2 sm:gap-6 mb-5">
+                <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  sm:gap-6 mb-5">
                     @include('shared.input', [
                         'label' => 'Titre',
                         'name' => 'title',
@@ -35,43 +36,50 @@
                         'label' => 'Pièces',
                         'name' => 'rooms',
                         'value' => $property->rooms,
-                        'type'=> 'number',
+                        'type' => 'number',
                         'placeholder' => 'Entrez le nombre de pièce(s)...',
                     ])
                     @include('shared.input', [
                         'label' => 'Chambres',
                         'name' => 'bedrooms',
                         'value' => $property->bedrooms,
-                        'type'=> 'number',
+                        'type' => 'number',
                         'placeholder' => 'Entrez le nombre de chambre(s)...',
                     ])
                     @include('shared.input', [
                         'label' => 'Etage',
                         'name' => 'floor',
-                        'type'=> 'number',
+                        'type' => 'number',
                         'value' => $property->floor,
                         'placeholder' => 'Entrez le nombre d\'étage...',
                     ])
                     @include('shared.input', [
                         'label' => 'Adresse',
                         'name' => 'address',
-                        'type'=> 'text',
+                        'type' => 'text',
                         'value' => $property->address,
                         'placeholder' => 'Entrez votre adresse...',
                     ])
                     @include('shared.input', [
                         'label' => 'Ville',
                         'name' => 'city',
-                        'type'=> 'text',
+                        'type' => 'text',
                         'value' => $property->city,
                         'placeholder' => 'Entrez la ville...',
                     ])
                     @include('shared.input', [
                         'label' => 'Code Postal',
                         'name' => 'postal_code',
-                        'type'=> 'text',
+                        'type' => 'text',
                         'value' => $property->postal_code,
                         'placeholder' => 'Entrez le code postal...',
+                    ])
+                    @include('shared.input', [
+                        'label' => 'Vendu',
+                        'name' => 'sold',
+                        'type' => 'checkbox',
+                        'value' => $property->sold,
+                        'placeholder' => '...',
                     ])
                 </div>
                 <div class="w-full mb-5">

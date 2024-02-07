@@ -25,6 +25,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
+       
         return view('admin.properties.form', [
             'property' => new Property()
         ]);
@@ -35,7 +36,8 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
-
+        $property = Property::create($request->validated());
+        return redirect()->route('admin.property.index')->with('success', 'Le bien a été crée avec succès.');
     }
 
     /**
