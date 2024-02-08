@@ -5,6 +5,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
     darkMode: "class",
     theme: {
@@ -30,5 +31,7 @@ export default {
         body: ["Poppins"],
         sans: ["Inter", "Roboto", "Helvetica Neue"],
     },
-    plugins: [],
+    plugins: [
+        require('flowbite/plugin')
+    ],
 };
