@@ -4,6 +4,16 @@
 
 @section('content')
     <div class="max-w-screen-7xl mx-auto mt-8 px-8">
+
+        <div class="mt-3 mb-3">
+            @if (session('success'))
+                <div
+                    class="p-4 mb-4 text-sm text-emerald-800 rounded-lg bg-emerald-100 dark:bg-gray-800 dark:text-emerald-400 border border-emerald-800">
+                    <span class="font-medium">{{ session('success') }}</span>
+                </div>
+            @endif
+        </div>
+
         <div class="flex justify-between items-center mb-3">
             <h1 class="text-gray-700 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             <a href="{{ route('admin.property.create') }}"
@@ -21,7 +31,7 @@
                         <path
                             d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
                     </svg>
-                    Last 30 days
+                    Trier par mois
                     <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -40,8 +50,8 @@
                                 <input id="filter-radio-example-1" type="radio" value="" name="filter-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="filter-radio-example-1"
-                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last
-                                    day</label>
+                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1
+                                    jour</label>
                             </div>
                         </li>
                         <li>
@@ -50,8 +60,8 @@
                                     name="filter-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="filter-radio-example-2"
-                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 7
-                                    days</label>
+                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1
+                                    semaine</label>
                             </div>
                         </li>
                         <li>
@@ -59,31 +69,23 @@
                                 <input id="filter-radio-example-3" type="radio" value="" name="filter-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="filter-radio-example-3"
-                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 30
-                                    days</label>
+                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1
+                                    mois</label>
                             </div>
                         </li>
                         <li>
                             <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
                                 <input id="filter-radio-example-4" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="filter-radio-example-4"
-                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last
-                                    month</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input id="filter-radio-example-5" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-5"
-                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Trier la liste</label>
+                                    class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">2
+                                    mois</label>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <label for="table-search" class="sr-only">Search</label>
+            <label for="table-search" class="sr-only">Rechercher</label>
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
@@ -94,8 +96,8 @@
                     </svg>
                 </div>
                 <input type="text" id="table-search"
-                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-                    placeholder="Search in list">
+                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-md w-80 bg-gray-50 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                    placeholder="Rechercher dans la liste">
             </div>
         </div>
 
@@ -106,7 +108,7 @@
                         <th scope="col" class="p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-all-search" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-all-search" class="sr-only">checkbox</label>
                             </div>
                         </th>
