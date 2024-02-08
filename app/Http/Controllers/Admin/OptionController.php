@@ -40,27 +40,24 @@ class OptionController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $option = Option::findOrFail($id);
+        return view('admin.options.form', [
+            'option' => $option
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(OptionFormRequest $request, string $id)
     {
-        //
+        $option = Option::findOrFail($id);
+        $option->update($request->validated());
+        return redirect()->route('admin.option.index')->with('success', 'L\'option a été modifiée avec succès.');
     }
 
     /**
@@ -68,6 +65,8 @@ class OptionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $option = Option::findOrFail($id);
+        $option->delete();
+        return redirect()->route('admin.option.index')->with('success', 'L\'option a été supprimée avec succès.');
     }
 }
