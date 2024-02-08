@@ -17,8 +17,14 @@
         <div class="flex justify-between items-center mb-3">
             <h1 class="text-gray-700 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             <a href="{{ route('admin.property.create') }}"
-                class="bg-indigo-500 focus:ring-indigo-300 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 rounded-md font-light text-sm w-auto sm:w-auto px-5 py-2.5 text-center focus:ring-4 focus:outline-none text-white shadow-xl">Ajouter
-                un bien</a>
+                class="flex bg-indigo-500 focus:ring-indigo-300 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 rounded-md font-light text-sm w-auto sm:w-auto px-5 py-2.5 text-center focus:ring-4 focus:outline-none text-white shadow-xl">
+                <span><svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14m-7 7V5" />
+                    </svg></span>
+                <span class="hidden md:block">Ajouter un bien</span>
+            </a>
         </div>
 
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -103,7 +109,7 @@
 
         <div class="relative overflow-x-auto shadow-xl sm:rounded-lg ">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2">
+                <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2 bg-gray-200">
                     <tr>
                         <th scope="col" class="p-4">
                             <div class="flex items-center">
@@ -132,7 +138,7 @@
                 <tbody>
                     @foreach ($properties as $index => $property)
                         <tr
-                            class="border-b-2 bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                            class="border-b-2 bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 {{ $index % 2 === 0 ? 'bg-white' : 'bg-slate-100' }}">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-table-search-1" type="checkbox"
@@ -148,19 +154,20 @@
                                 {{ $property->title }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $property->surface }}
+                                {{ $property->surface }} <span class="font-semibold">M²</span>
                             </td>
                             <td class="px-6 py-4">
-                                {{ number_format($property->price, thousands_separator: ' ') }}
+                                {{ number_format($property->price, thousands_separator: ' ') }}<span class="font-semibold">
+                                    €</span>
                             </td>
                             <td class="flex items-center px-6 py-4">
                                 <a href="{{ route('admin.property.edit', $property->id) }}"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
                                 <form action="{{ route('admin.property.destroy', $property->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button
-                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
+                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Supprimer</button>
                                 </form>
                             </td>
                         </tr>
