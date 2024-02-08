@@ -57,15 +57,20 @@ class PropertyController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $property = Property::find($id);
+        return view('admin.properties.form', [
+            'property' => $property
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PropertyFormRequest $request, string $id)
     {
-        //
+        $property = Property::find($id);
+        $property->update($request->validated());
+        return redirect()->route('admin.property.index')->with('success', 'Le bien a été modifiée avec succès.');
     }
 
     /**
@@ -73,6 +78,8 @@ class PropertyController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $property = Property::find($id);
+        $property->delete();
+        return redirect()->route('admin.property.index')->with('success', 'Le bien a été supprimée avec succès.');
     }
 }
