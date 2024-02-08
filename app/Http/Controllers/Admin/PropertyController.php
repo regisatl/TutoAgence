@@ -16,7 +16,7 @@ class PropertyController extends Controller
     {
         //
         return view('admin.properties.index', [
-            'properties' => Property::orderBy('created_at', 'desc')->paginate(1)
+            'properties' => Property::orderBy('created_at', 'asc')->paginate(10)
         ]);
     }
 

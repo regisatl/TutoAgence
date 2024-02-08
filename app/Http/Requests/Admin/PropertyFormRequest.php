@@ -30,7 +30,7 @@ class PropertyFormRequest extends FormRequest
             'floor' => ['required', 'integer', 'min:0'],
             'price' => ['required', 'integer', 'min:0'],
             'city' => ['required', 'min:8'],
-            'address' => ['required', 'min:8'],
+            'address' => ['required', 'min:4'],
             'postal_code' => ['required', 'integer', 'min:3'],
             'sold' => ['required', 'boolean'],
         ];
