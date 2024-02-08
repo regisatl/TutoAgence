@@ -45,7 +45,7 @@ class OptionController extends Controller
     public function edit(string $id)
     {
         $option = Option::findOrFail($id);
-        return view('admin.options.form', [
+        return view('admin.option.form', [
             'option' => $option
         ]);
     }
