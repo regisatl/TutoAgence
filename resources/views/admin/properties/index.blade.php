@@ -108,8 +108,8 @@
         </div>
 
         <div class="relative overflow-x-auto shadow-xl sm:rounded-lg ">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2 bg-gray-200">
+            <table class="w-full text-sm text-left rtl:text-right text-slate-500 dark:text-gray-400">
+                <thead class="text-xs text-slate-800 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2 bg-gray-200">
                     <tr>
                         <th scope="col" class="p-4">
                             <div class="flex items-center">
@@ -126,6 +126,12 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Surface
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Pièces
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Chambres
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Prix
@@ -147,7 +153,7 @@
                                 </div>
                             </td>
                             <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">
                                 {{ $index + 1 }}
                             </th>
                             <td class="px-6 py-4">
@@ -155,6 +161,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $property->surface }} <span class="font-semibold">M²</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $property->rooms }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $property->bedrooms }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ number_format($property->price, thousands_separator: ' ') }}<span class="font-semibold">
