@@ -14,6 +14,18 @@
             @endif
         </div>
 
+        <div class="mt-3 mb-3">
+            @if ($errors->any())
+                <div
+                    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400 border border-red-800">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li class="font-medium">{{ $error }}</li>
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <div class="flex justify-between items-center mb-3">
             <h1 class="text-gray-700 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             <a href="{{ route('admin.option.create') }}"
