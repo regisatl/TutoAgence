@@ -19,8 +19,9 @@
                 <div
                     class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400 border border-red-800">
                     <ul>
-                        @foreach($errors->all() as $error)
-                        <li class="font-medium">{{ $error }}</li>
+                        @foreach ($errors->all() as $error)
+                            <li class="font-medium">{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
@@ -30,12 +31,14 @@
             <h1 class="text-gray-700 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             <a href="{{ route('admin.option.create') }}"
                 class="flex bg-indigo-500 focus:ring-indigo-300 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 rounded-md font-light text-sm w-auto sm:w-auto px-5 py-2.5 text-center focus:ring-4 focus:outline-none text-white shadow-xl">
-                <span><svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                <span>
+                    <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 12h14m-7 7V5" />
-                    </svg></span>
-                <span class="hidden md:block">Ajouter une nouvelle option</span>
+                    </svg>
+                </span>
+                <span class="hidden md:block">Ajouter</span>
             </a>
         </div>
 
@@ -137,6 +140,12 @@
                             Nom
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Date de création
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Date de mise à jour
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Actions
                         </th>
                     </tr>
@@ -159,7 +168,14 @@
                             <td class="px-6 py-4">
                                 {{ $option->name }}
                             </td>
-                               <a href="{{ route('admin.option.edit', $option->id) }}"
+                            <td class="px-6 py-4">
+                                {{ $option->created_at }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $option->updated_at }}
+                            </td>
+                            <td class="flex items-center px-6 py-4">
+                                <a href="{{ route('admin.option.edit', $option->id) }}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editer</a>
                                 <form action="{{ route('admin.option.destroy', $option->id) }}" method="POST">
                                     @csrf

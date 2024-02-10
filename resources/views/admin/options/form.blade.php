@@ -10,6 +10,7 @@
                 class="flex justify-center items-center {{ $option->exists ? 'bg-emerald-500' : 'bg-indigo-500' }} p-3 rounded-t-lg">
                 <h1 class="text-gray-200 text-sm md:text-md lg:text-lg uppercase font-semibold">@yield('title')</h1>
             </div>
+
             <form action="{{ route($option->exists ? 'admin.option.update' : 'admin.option.store', $option) }}"
                 method="post" class="p-8">
                 @csrf
@@ -34,6 +35,7 @@
                     </button>
                 </div>
             </form>
+            
         </div>
     </div>
 @endsection
