@@ -77,10 +77,17 @@
                         'value' => $property->postal_code,
                         'placeholder' => 'Entrez le code postal...',
                     ])
+                    @include('shared.select', [
+                        'label' => 'Options',
+                        'name' => 'options',
+                        'value' => $property->options()->pluck('id'), 'multiple' =>true,
+                        'placeholder' => 'Sélectionnez une ou plusieurs options...',
+                    ])
                     @include('shared.checkbox', [
                         'label' => 'Vendu',
                         'name' => 'sold',
                         'value' => $property->sold,
+                        'options' => $options
                     ])
                 </div>
                 <div class="w-full mb-5">
