@@ -21,6 +21,10 @@
 
 <body class="bg-gray-100">
 
+    <header>
+        @include('shared.header')
+    </header>
+
     <div class="mt-5">
         @yield('content')
     </div>

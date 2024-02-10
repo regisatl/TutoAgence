@@ -144,7 +144,7 @@
                 <tbody>
                     @foreach ($properties as $index => $property)
                         <tr
-                            class="border-b-2 bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 {{ $index % 2 === 0 ? 'bg-white' : 'bg-slate-100' }}">
+                            class="border-b-2 bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 {{ $index % 2 === 0 ? 'bg-white' : 'bg-amber-50' }}">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-table-search-1" type="checkbox"
