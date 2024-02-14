@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.tailwindcss.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
     <title>@yield('title') | Administration</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -28,6 +30,10 @@
     <div class="mt-5">
         @yield('content')
     </div>
+
+    <script>
+        new TomSelect('select[multiple]', {plugins: {remove_button: {title: 'supprimer'}}})
+    </script>
 
 </body>
 
