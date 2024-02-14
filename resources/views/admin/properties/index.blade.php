@@ -109,7 +109,7 @@
 
         <div class="relative overflow-x-auto shadow-xl sm:rounded-lg ">
             <table class="w-full text-sm text-left rtl:text-right text-slate-500 dark:text-gray-400">
-                <thead class="text-xs text-slate-800 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2 bg-gray-200">
+                <thead class="text-xs text-slate-800 uppercase dark:bg-gray-700 dark:text-gray-400 border-b-2 bg-gradient-to-r from-gray-500">
                     <tr>
                         <th scope="col" class="p-4">
                             <div class="flex items-center">
